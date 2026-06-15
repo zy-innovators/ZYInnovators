@@ -4,16 +4,15 @@
 
 :host {
   display: block;
-  position: relative;
-  z-index: var(--z-navbar);
-}
-
-.navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: var(--z-navbar);
+}
+
+.navbar {
+  width: 100%;
   transition: all var(--transition-base);
   background: transparent;
 }
