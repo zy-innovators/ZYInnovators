@@ -16,7 +16,7 @@ export class ComputerUpgradeComponent implements OnInit {
 
   ngOnInit(): void {
     this.seoService.setPageSeo(
-      'Computer Upgrade Program',
+      'Syllabus Upgrade Program',
       'A progressive digital curriculum designed to transition students from basic visual logic to advanced AI-assisted productivity.'
     );
   }

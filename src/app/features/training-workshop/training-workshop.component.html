@@ -53,6 +53,27 @@
               <p class="session-subtitle">{{ item.subtitle }}</p>
               <p class="session-description">{{ item.description }}</p>
               
+              @if (hasLinkResources(item)) {
+                <div class="session-resources-list" style="margin-bottom: var(--space-6);">
+                  <h5 style="margin-top: 0; margin-bottom: var(--space-2); color: var(--color-primary); font-size: var(--text-small); font-weight: var(--weight-bold); display: flex; align-items: center; gap: 6px;">
+                    <span class="material-icons-outlined" style="font-size: 1.1rem; color: var(--color-accent);">menu_book</span>
+                    Available Resources:
+                  </h5>
+                  <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2);">
+                    @for (res of item.resources; track res.label) {
+                      @if (res.url) {
+                        <li style="font-size: var(--text-small);">
+                          <a [href]="res.url" target="_blank" style="color: var(--color-accent-dark); text-decoration: underline; font-weight: var(--weight-semibold); display: inline-flex; align-items: center; gap: 4px;">
+                            <span class="material-icons-outlined" style="font-size: 0.95rem;">link</span>
+                            {{ res.label }}
+                          </a>
+                        </li>
+                      }
+                    }
+                  </ul>
+                </div>
+              }
+              
               @if (item.downloadUrl) {
                 <div class="session-actions">
                   <a class="btn btn-primary" [routerLink]="['/resources']" [queryParams]="{ topic: item.title.toLowerCase().includes('python') ? 'python' : 'abacus' }">

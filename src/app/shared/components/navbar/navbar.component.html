@@ -52,7 +52,7 @@
 
     <!-- CTA Button (Desktop) -->
     <a routerLink="/contact" class="nav-cta hide-mobile" id="navbar-cta">
-      Get Started
+      Contact
     </a>
 
     <!-- Mobile Menu Button -->
@@ -68,47 +68,48 @@
     </button>
   </div>
 
-  <!-- Mobile Backdrop Overlay -->
-  <div class="nav-backdrop" [class.open]="isMobileMenuOpen()" (click)="closeMobileMenu()"></div>
-
-  <!-- Mobile Navigation -->
-  <div class="nav-mobile" [class.open]="isMobileMenuOpen()" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
-    <div class="nav-mobile-inner">
-      @for (item of navItems; track item.label) {
-        @if (item.children) {
-          <div class="mobile-dropdown">
-            <button class="mobile-nav-link"
-                    (click)="toggleDropdown(item.label)"
-                    [attr.aria-expanded]="activeDropdown() === item.label">
-              {{ item.label }}
-              <span class="material-icons-outlined" [class.rotated]="activeDropdown() === item.label">expand_more</span>
-            </button>
-            @if (activeDropdown() === item.label) {
-              <div class="mobile-dropdown-menu">
-                @for (child of item.children; track child.label) {
-                  <a [routerLink]="child.path.split('?')[0]"
-                     [queryParams]="child.path.includes('?') ? parseQuery(child.path) : null"
-                     class="mobile-dropdown-item"
-                     (click)="closeMobileMenu()">
-                    {{ child.label }}
-                  </a>
-                }
-              </div>
-            }
-          </div>
-        } @else {
-          <a [routerLink]="item.path"
-             routerLinkActive="active"
-             [routerLinkActiveOptions]="{exact: item.path === '/'}"
-             class="mobile-nav-link"
-             (click)="closeMobileMenu()">
-            {{ item.label }}
-          </a>
-        }
-      }
-      <a routerLink="/contact" class="btn btn-primary btn-lg mobile-cta" (click)="closeMobileMenu()">
-        Get Started
-      </a>
-    </div>
-  </div>
 </header>
+
+<!-- Mobile Backdrop Overlay -->
+<div class="nav-backdrop" [class.open]="isMobileMenuOpen()" (click)="closeMobileMenu()"></div>
+
+<!-- Mobile Navigation -->
+<div class="nav-mobile" [class.open]="isMobileMenuOpen()" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+  <div class="nav-mobile-inner">
+    @for (item of navItems; track item.label) {
+      @if (item.children) {
+        <div class="mobile-dropdown">
+          <button class="mobile-nav-link"
+                  (click)="toggleDropdown(item.label)"
+                  [attr.aria-expanded]="activeDropdown() === item.label">
+            {{ item.label }}
+            <span class="material-icons-outlined" [class.rotated]="activeDropdown() === item.label">expand_more</span>
+          </button>
+          @if (activeDropdown() === item.label) {
+            <div class="mobile-dropdown-menu">
+              @for (child of item.children; track child.label) {
+                <a [routerLink]="child.path.split('?')[0]"
+                   [queryParams]="child.path.includes('?') ? parseQuery(child.path) : null"
+                   class="mobile-dropdown-item"
+                   (click)="closeMobileMenu()">
+                  {{ child.label }}
+                </a>
+              }
+            </div>
+          }
+        </div>
+      } @else {
+        <a [routerLink]="item.path"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: item.path === '/'}"
+           class="mobile-nav-link"
+           (click)="closeMobileMenu()">
+          {{ item.label }}
+        </a>
+      }
+    }
+    <a routerLink="/contact" class="btn btn-primary btn-lg mobile-cta" (click)="closeMobileMenu()">
+      Contact
+    </a>
+  </div>
+</div>

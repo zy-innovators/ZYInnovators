@@ -56,7 +56,7 @@ export class DataService {
       }
     },
     {
-      grade: 'Grade 8',
+      grade: 'Grades 8-9',
       title: 'Data Visualization & Interpretation',
       icon: 'bar_chart',
       smart: {
@@ -66,12 +66,12 @@ export class DataService {
       }
     },
     {
-      grade: 'Grade 9',
-      title: 'Office Productivity using Gemini and other tools',
+      grade: 'Grade 10',
+      title: 'Office Productivity using GenAI Tools',
       icon: 'smart_toy',
       smart: {
-        specific: 'Cloud productivity suites (Docs, Sheets, Slides), document formatting, and prompt engineering with Gemini and other AI tools.',
-        achievable: 'Creating formatted reports, budgeting sheets with formulas, and leveraging Gemini to automate content research.',
+        specific: 'Cloud productivity suites (Docs, Sheets, Slides), document formatting, and prompt engineering with GenAI tools.',
+        achievable: 'Creating formatted reports, budgeting sheets with formulas, and leveraging GenAI tools to automate content research.',
         relevant: 'Prepares students for modern professional workflows, academic research, and AI-assisted productivity.'
       }
     }
@@ -144,7 +144,8 @@ export class DataService {
       ],
       resources: [
         { label: 'Speed Maths Magic Tricks Booklet' },
-        { label: 'Group Arithmetic Competition Cards' }
+        { label: 'Group Arithmetic Competition Cards' },
+        { label: 'Interactive Speed Maths Web App', url: 'https://zyarr-innovation.github.io/maths-app2/' }
       ]
     },
     {
@@ -195,23 +196,17 @@ export class DataService {
       description: 'A competitive test highlighting advanced problem solving, arithmetic logic patterns, and speed arithmetic tricks.'
     },
     {
-      title: 'Science Exhibition',
+      title: 'Science Quiz',
       icon: 'science',
       subtitle: 'Exploring Nature & Biology',
       description: 'Educational projects and study materials introducing students to the wonders of science and biology.',
       downloadUrl: '/resources?topic=science'
     },
     {
-      title: 'IT & Coding Tournament',
+      title: 'IT & Coding Quiz',
       icon: 'code',
       subtitle: 'Block Coding and Python Speed Runs',
       description: 'A digital hackathon test where students write code to solve logic puzzles, build games, or design web pages within a set time limit.'
-    },
-    {
-      title: 'Short Video & Media Creation',
-      icon: 'videocam',
-      subtitle: 'Digital Storytelling and Creative Communication',
-      description: 'A creative tournament encouraging students to draft script, record, and edit engaging short educational videos explaining concepts in science, IT, or social awareness.'
     }
   ]);
 }

@@ -100,9 +100,29 @@ export class HomeComponent implements OnInit, OnDestroy {
     }, 3500);
   }
 
+  nextPhoto(): void {
+    const maxIdx = this.photos.length - this.visibleCount();
+    this.activePhotoIndex.update(idx => idx >= maxIdx ? 0 : idx + 1);
+    this.resetTimer();
+  }
+
+  prevPhoto(): void {
+    const maxIdx = this.photos.length - this.visibleCount();
+    this.activePhotoIndex.update(idx => idx <= 0 ? maxIdx : idx - 1);
+    this.resetTimer();
+  }
+
+  resetTimer(): void {
+    if (this.timerId) {
+      clearInterval(this.timerId);
+    }
+    this.startCarousel();
+  }
+
   setPhotoIndex(idx: number): void {
     const maxIdx = this.photos.length - this.visibleCount();
     this.activePhotoIndex.set(Math.min(idx, maxIdx));
+    this.resetTimer();
   }
 
   getDots(): number[] {

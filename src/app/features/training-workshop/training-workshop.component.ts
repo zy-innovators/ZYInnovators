@@ -34,4 +34,8 @@ export class TrainingWorkshopComponent implements OnInit {
   setTab(tab: 'all' | 'students' | 'teachers'): void {
     this.activeTab.set(tab);
   }
+
+  hasLinkResources(item: TrainingWorkshop): boolean {
+    return !!item.resources?.some(res => !!res.url);
+  }
 }

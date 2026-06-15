@@ -14,8 +14,8 @@ export class FooterComponent {
   upgradeLinks = [
     { label: 'Grades 5-6 (Visual Coding)', path: '/computer-upgrade' },
     { label: 'Grade 7 (Python Coding)', path: '/computer-upgrade' },
-    { label: 'Grade 8 (Data Visualization)', path: '/computer-upgrade' },
-    { label: 'Grade 9 (Productivity & AI)', path: '/computer-upgrade' }
+    { label: 'Grades 8-9 (Data Visualization)', path: '/computer-upgrade' },
+    { label: 'Grade 10 (Productivity & GenAI)', path: '/computer-upgrade' }
   ];
 
   trainingLinks = [
@@ -26,9 +26,8 @@ export class FooterComponent {
   competitionLinks = [
     { label: 'GK Quiz', path: '/competitions' },
     { label: 'Maths Olympiad', path: '/competitions' },
-    { label: 'Science Exhibition', path: '/competitions' },
-    { label: 'IT Hackathon', path: '/competitions' },
-    { label: 'Short Video Media', path: '/competitions' }
+    { label: 'Science Quiz', path: '/competitions' },
+    { label: 'IT & Coding Quiz', path: '/competitions' }
   ];
 
   companyLinks = [

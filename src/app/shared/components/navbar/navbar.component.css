@@ -11,6 +11,11 @@
   z-index: var(--z-navbar);
 }
 
+:host.menu-open {
+  bottom: 0;
+  z-index: var(--z-overlay);
+}
+
 .navbar {
   width: 100%;
   transition: all var(--transition-base);

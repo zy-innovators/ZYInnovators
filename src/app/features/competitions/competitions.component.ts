@@ -18,7 +18,7 @@ export class CompetitionsComponent implements OnInit {
   ngOnInit(): void {
     this.seoService.setPageSeo(
       'Student Competitions',
-      'Participate in Zy Innovators quiz and academic challenges, including General Knowledge (GK), Mathematics, Science & Innovation, IT Coding, and Short Video creation.'
+      'Participate in Zy Innovators quiz and academic challenges, including General Knowledge (GK), Mathematics, Science Quiz, and IT & Coding Quiz.'
     );
   }
 }

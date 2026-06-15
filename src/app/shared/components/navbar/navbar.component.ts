@@ -1,4 +1,4 @@
-import { Component, signal, HostListener } from '@angular/core';
+import { Component, signal, HostListener, HostBinding } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NavItem } from '../../models';
 
@@ -14,11 +14,16 @@ export class NavbarComponent {
   isMobileMenuOpen = signal(false);
   activeDropdown = signal<string | null>(null);
 
+  @HostBinding('class.menu-open')
+  get menuOpen(): boolean {
+    return this.isMobileMenuOpen();
+  }
+
   navItems: NavItem[] = [
     { label: 'Home', path: '/' },
     { label: 'Training & Workshop', path: '/training-workshop' },
     { label: 'Competitions', path: '/competitions' },
-    { label: 'Computer Upgrade', path: '/computer-upgrade' },
+    { label: 'Syllabus Upgrade', path: '/computer-upgrade' },
     {
       label: 'About',
       path: '/about',
@@ -26,8 +31,7 @@ export class NavbarComponent {
         { label: 'Leadership', path: '/about/leadership' },
         { label: 'Vision & Mission', path: '/about/vision-mission' }
       ]
-    },
-    { label: 'Contact', path: '/contact' }
+    }
   ];
 
   @HostListener('window:scroll')
