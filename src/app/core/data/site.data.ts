@@ -100,7 +100,7 @@ export const LEARNING_STAGES: LearningStage[] = [
     vision: 'To create an educational ecosystem where every student has access to world-class innovation and technology-driven learning, regardless of their background.',
     expertise: ['Educational Leadership', 'Institutional Development', 'Curriculum Innovation', 'Strategic Partnerships'],
     contributions: ['Founded Zy Innovators educational framework', 'Established partnerships with schools and colleges', 'Designed comprehensive teacher training programs', 'Led the development of comprehensive learning resources'],
-    image: '/assets/images/ghazala.png',
+    image: 'assets/images/ghazala.png',
     order: 1
   },
   {
@@ -112,7 +112,7 @@ export const LEARNING_STAGES: LearningStage[] = [
     vision: 'To democratize innovation education and equip the next generation with the skills, mindset, and tools to lead in an AI-driven future.',
     expertise: ['Technology Strategy', 'Product Development', 'AI & Machine Learning', 'Educational Technology', 'Organizational Leadership'],
     contributions: ['Architected the Zy Innovators program framework', 'Developed AI and coding curriculum', 'Built the resource development pipeline', 'Established workshop delivery methodology'],
-    image: '/assets/images/yusuf.png',
+    image: 'assets/images/yusuf.png',
     order: 2
   },
   {
@@ -124,7 +124,7 @@ export const LEARNING_STAGES: LearningStage[] = [
     vision: 'To make technology education hands-on, inclusive, and transformative — enabling every learner to become a creator, not just a consumer of technology.',
     expertise: ['Robotics & Electronics', 'Programming Education', 'Curriculum Design', 'Technical Training', 'Content Development'],
     contributions: ['Designed robotics and electronics workshop curriculum', 'Created comprehensive educational resources', 'Led teacher training programs in educational institutions', 'Developed the Zy Innovators assessment framework'],
-    image: '/assets/images/zainab.png',
+    image: 'assets/images/zainab.png',
     order: 3
   },
   {
@@ -136,7 +136,7 @@ export const LEARNING_STAGES: LearningStage[] = [
     vision: 'To bridge the gap between academic learning and multinational industry standards, preparing students for high-impact technology careers.',
     expertise: ['Technology Leadership', 'Engineering Management', 'Product Development', 'Industrial Systems', 'Global Operations'],
     contributions: ['Guides curriculum alignment with industry standards', 'Provides industry mentorship and career guidance', 'Advises on advanced engineering and robotics programs', 'Supports strategic technology roadmap development'],
-    image: '/assets/images/arif.png',
+    image: 'assets/images/arif.png',
     order: 4
   }
 ];
@@ -211,14 +211,14 @@ export const RESOURCES: Resource[] = [
     id: 'r2', slug: 'ai-for-educators-guide', title: 'AI for Educators — Complete Guide',
     description: 'A teacher manual covering AI fundamentals, GenAI tools integration, prompt engineering, and responsible AI use in educational settings.',
     category: 'teacher-manuals', tags: ['ai', 'genai', 'teaching'],
-    thumbnail: '', downloadUrl: '/assets/resources/ai-for-educators.pdf',
+    thumbnail: '', downloadUrl: 'assets/resources/ai-for-educators.pdf',
     author: 'Zy Innovators', publishedDate: '2024-03-10', featured: true
   },
   {
     id: 'r3', slug: 'robotics-project-handbook', title: 'Robotics Project Handbook',
     description: 'Step-by-step guide for building 15 robotics projects, from simple line followers to advanced autonomous robots.',
     category: 'books', tags: ['robotics', 'arduino', 'projects'],
-    thumbnail: '', downloadUrl: '/assets/resources/robotics-handbook.pdf',
+    thumbnail: '', downloadUrl: 'assets/resources/robotics-handbook.pdf',
     author: 'Zy Innovators', publishedDate: '2024-02-20', featured: true
   },
   {
@@ -239,7 +239,7 @@ export const RESOURCES: Resource[] = [
     id: 'r6', slug: 'scratch-programming-activities', title: 'Scratch Programming Activity Cards',
     description: 'A set of 30 activity cards for teaching block-based programming using Scratch, organized by difficulty level.',
     category: 'teacher-manuals', tags: ['scratch', 'visual-programming', 'activities'],
-    thumbnail: '', downloadUrl: '/assets/resources/scratch-cards.pdf',
+    thumbnail: '', downloadUrl: 'assets/resources/scratch-cards.pdf',
     author: 'Zy Innovators', publishedDate: '2024-04-12', featured: true
   },
   {
