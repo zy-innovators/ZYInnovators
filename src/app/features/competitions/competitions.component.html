@@ -1,0 +1,44 @@
+<section class="section">
+  <div class="container pb-12">
+    <!-- Header -->
+    <header class="mb-12 text-center md:text-left reveal" zyAnimateOnScroll>
+      <h1 class="page-title">
+        <span class="material-icons-outlined text-4xl text-primary">emoji_events</span>
+        Student Competitions
+      </h1>
+      <p class="page-subtitle">
+        Challenging young minds and rewarding academic excellence across core disciplines. Explore our active screening and school tournament rounds.
+      </p>
+    </header>
+
+    <!-- Grid of Competitions -->
+    <div class="competitions-dashboard">
+      @for (comp of dataService.competitions(); track comp.title; let i = $index) {
+        <div class="competition-card-new reveal group" zyAnimateOnScroll [delay]="i * 100">
+          <!-- Card Top -->
+          <div class="comp-card-top">
+            <div class="comp-icon-ring">
+              <span class="material-icons-outlined comp-icon">{{ comp.icon }}</span>
+            </div>
+            <div class="comp-headers">
+              <h2 class="comp-title">{{ comp.title }}</h2>
+              <p class="comp-subtitle">{{ comp.subtitle }}</p>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <p class="comp-description">{{ comp.description }}</p>
+
+          @if (comp.downloadUrl) {
+            <div class="session-actions" style="margin-top: var(--space-4);">
+              <a class="btn btn-primary" [routerLink]="['/resources']" [queryParams]="{ topic: 'science' }">
+                <span class="material-icons-outlined">download_for_offline</span>
+                Download Resources
+              </a>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

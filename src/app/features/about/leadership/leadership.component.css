@@ -1,0 +1,39 @@
+.page-hero { position: relative; padding: calc(80px + var(--space-16)) 0 var(--space-16); text-align: center; color: var(--color-text); overflow: hidden; border-bottom: 1px solid var(--color-border); }
+.page-hero-bg { position: absolute; inset: 0; background: var(--gradient-hero); }
+.page-hero-content { position: relative; z-index: 1; }
+.page-hero-subtitle { font-size: var(--text-body-lg); color: var(--color-text-muted); max-width: 600px; margin-inline: auto; margin-top: var(--space-4); }
+
+.leader-profile { display: grid; grid-template-columns: 350px 1fr; gap: var(--space-12); align-items: start; padding-bottom: var(--space-16); margin-bottom: var(--space-16); border-bottom: 1px solid var(--color-border); }
+.leader-profile:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.leader-profile.reverse { grid-template-columns: 1fr 350px; }
+.leader-profile.reverse .leader-portrait-large { order: 2; }
+
+.leader-portrait-large { position: sticky; top: calc(80px + var(--space-6)); }
+.portrait-placeholder { width: 100%; aspect-ratio: 3/4; border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(37,99,235,0.08), rgba(20,184,166,0.08)); border: 2px solid var(--color-border); }
+.portrait-placeholder .material-icons-outlined { font-size: 5rem; color: var(--color-text-light); }
+.portrait-img { width: 100%; aspect-ratio: 3/4; border-radius: var(--radius-xl); object-fit: cover; border: 2px solid var(--color-border); display: block; }
+#leader-profile-ghazala-shaikh .portrait-img { object-position: center 20%; }
+#leader-profile-yusuf-shaikh .portrait-img { object-position: center 10%; }
+#leader-profile-zainab-shaikh .portrait-img { object-position: center 15%; }
+#leader-profile-arif-shaikh .portrait-img { object-position: center 20%; }
+
+.leader-details .badge { margin-bottom: var(--space-3); }
+.leader-details .heading-1 { margin-bottom: var(--space-6); }
+.leader-bio { font-size: var(--text-body-lg); color: var(--color-text-muted); line-height: var(--leading-loose); margin-bottom: var(--space-8); }
+
+.leader-section { margin-bottom: var(--space-6); }
+.leader-section .heading-4 { margin-bottom: var(--space-3); }
+.leader-section .text-muted { line-height: var(--leading-relaxed); }
+
+.expertise-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.expertise-tag { padding: var(--space-2) var(--space-4); font-size: var(--text-small); font-weight: var(--weight-medium); background: rgba(37,99,235,0.06); color: var(--color-secondary); border-radius: var(--radius-full); border: 1px solid rgba(37,99,235,0.12); }
+
+.contributions-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
+.contributions-list li { display: flex; align-items: flex-start; gap: var(--space-3); font-size: var(--text-body); color: var(--color-text); line-height: var(--leading-relaxed); }
+.contributions-list li .material-icons-outlined { font-size: 1.1rem; color: var(--color-accent); flex-shrink: 0; margin-top: 4px; }
+
+@media (max-width: 1024px) {
+  .leader-profile, .leader-profile.reverse { grid-template-columns: 1fr; }
+  .leader-profile.reverse .leader-portrait-large { order: 0; }
+  .leader-portrait-large { position: static; max-width: 300px; }
+}

@@ -1,0 +1,47 @@
+<section class="page-hero"><div class="page-hero-bg"></div><div class="container page-hero-content">
+  <span class="badge animate-fade-in-down">Visual Stories</span>
+  <h1 class="heading-hero animate-fade-in-up">Gallery</h1>
+  <p class="page-hero-subtitle animate-fade-in-up" style="animation-delay:200ms">Moments from our trainings, workshops, events, and student innovations.</p>
+</div></section>
+
+<section class="section"><div class="container">
+  <div class="filter-bar reveal" zyAnimateOnScroll>
+    @for (cat of categories; track cat.key) {
+      <button class="filter-chip" [class.active]="activeCategory() === cat.key" (click)="setCategory(cat.key)">{{ cat.label }}</button>
+    }
+  </div>
+
+  <div class="gallery-grid">
+    @for (item of filteredItems(); track item.id; let i = $index) {
+      <div class="gallery-item reveal" zyAnimateOnScroll [delay]="i * 60" (click)="openLightbox(i)" [id]="'gallery-' + item.id">
+        <div class="gallery-image-placeholder"><span class="material-icons-outlined">photo_camera</span></div>
+        <div class="gallery-overlay">
+          <h4 class="gallery-title">{{ item.title }}</h4>
+          <span class="gallery-category">{{ item.category }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</div></section>
+
+<!-- Lightbox -->
+@if (lightboxOpen()) {
+  <div class="lightbox" (click)="closeLightbox()" role="dialog" aria-modal="true" id="gallery-lightbox">
+    <button class="lightbox-close" (click)="closeLightbox()" aria-label="Close lightbox">
+      <span class="material-icons-outlined">close</span>
+    </button>
+    <button class="lightbox-nav lightbox-prev" (click)="prevImage(); $event.stopPropagation()" aria-label="Previous image">
+      <span class="material-icons-outlined">chevron_left</span>
+    </button>
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <div class="lightbox-image-placeholder"><span class="material-icons-outlined">photo_camera</span></div>
+      <div class="lightbox-info">
+        <h3>{{ filteredItems()[lightboxIndex()].title }}</h3>
+        <p>{{ filteredItems()[lightboxIndex()].description }}</p>
+      </div>
+    </div>
+    <button class="lightbox-nav lightbox-next" (click)="nextImage(); $event.stopPropagation()" aria-label="Next image">
+      <span class="material-icons-outlined">chevron_right</span>
+    </button>
+  </div>
+}

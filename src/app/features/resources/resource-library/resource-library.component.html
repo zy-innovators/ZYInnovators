@@ -1,0 +1,124 @@
+@if (!topic()) {
+  <section class="page-hero" id="resources-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container page-hero-content">
+      <span class="badge animate-fade-in-down">Resource Center</span>
+      <h1 class="heading-hero animate-fade-in-up">Resource <span class="text-gradient">Library</span></h1>
+      <p class="page-hero-subtitle animate-fade-in-up" style="animation-delay: 200ms">
+        Books, manuals, workbooks, and learning materials developed by Zy Innovators.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="resource-listing">
+    <div class="container">
+      <!-- Search + Filter -->
+      <div class="search-filter-bar reveal" zyAnimateOnScroll>
+        <div class="search-input-wrap">
+          <span class="material-icons-outlined">search</span>
+          <input type="text" placeholder="Search resources..." (input)="onSearch($event)" class="search-input" id="resource-search">
+        </div>
+        <div class="filter-bar">
+          @for (cat of categories; track cat.key) {
+            <button class="filter-chip" [class.active]="activeCategory() === cat.key" (click)="setCategory(cat.key)">{{ cat.label }}</button>
+          }
+        </div>
+      </div>
+
+      <div class="resources-grid">
+        @for (resource of filteredResources(); track resource.id; let i = $index) {
+          <div class="resource-card reveal" zyAnimateOnScroll [delay]="i * 80" [id]="'resource-' + resource.id">
+            <div class="resource-thumbnail">
+              <div class="resource-thumbnail-placeholder">
+                <span class="material-icons-outlined">menu_book</span>
+              </div>
+            </div>
+            <div class="resource-info">
+              <span class="badge">{{ getCategoryLabel(resource.category) }}</span>
+              <h3 class="resource-title">{{ resource.title }}</h3>
+              <p class="resource-description">{{ resource.description }}</p>
+              <div class="resource-tags">
+                @for (tag of resource.tags; track tag) {
+                  <span class="tag">{{ tag }}</span>
+                }
+              </div>
+              <div class="resource-actions">
+                @if (resource.downloadUrl) {
+                  <a [href]="resource.downloadUrl" class="btn btn-outline btn-sm">
+                    <span class="material-icons-outlined">download</span>
+                    Download Resource
+                  </a>
+                } @else if (resource.previewUrl) {
+                  <a [href]="resource.previewUrl" target="_blank" class="btn btn-outline btn-sm">
+                    <span class="material-icons-outlined">visibility</span>
+                    View Resource
+                  </a>
+                } @else {
+                  <a href="mailto:zyinnovators&#64;gmail.com?subject=Resource Request: {{ resource.title }}" class="btn btn-outline btn-sm">
+                    <span class="material-icons-outlined">mail</span>
+                    Access Material
+                  </a>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      @if (filteredResources().length === 0) {
+        <div class="empty-state">
+          <span class="material-icons-outlined">search_off</span>
+          <h3>No resources found</h3>
+          <p>Try adjusting your search or filter criteria.</p>
+        </div>
+      }
+    </div>
+  </section>
+} @else {
+  <!-- Custom Topic Downloads View -->
+  <section class="section">
+    <div class="container pb-12">
+      <!-- Back to parent page link -->
+      <div class="mb-8 reveal" zyAnimateOnScroll>
+        <a [routerLink]="topic() === 'science' ? '/competitions' : '/training-workshop'" class="flex items-center gap-2 text-primary hover:text-accent transition-colors font-medium cursor-pointer" style="display: inline-flex; text-decoration: none;">
+          <span class="material-icons-outlined">arrow_back</span>
+          Back to {{ topic() === 'science' ? 'Competitions' : 'Training & Workshops' }}
+        </a>
+      </div>
+
+      <header class="mb-12 text-center md:text-left reveal" zyAnimateOnScroll>
+        <h1 class="page-title">
+          <span class="material-icons-outlined text-4xl text-primary">{{ topic() === 'python' ? 'code' : (topic() === 'abacus' ? 'calculate' : 'science') }}</span>
+          {{ topic() === 'python' ? 'Python Programming' : (topic() === 'abacus' ? 'Abacus & Tangram' : 'Science') }} Resources
+        </h1>
+        <p class="page-subtitle">
+          Select and download individual study books, manuals, and student workbooks for {{ topic() === 'python' ? 'Python' : (topic() === 'abacus' ? 'Abacus' : 'Science') }} training.
+        </p>
+      </header>
+
+      <!-- Grid of PDFs -->
+      <div class="resources-grid">
+        @for (res of getTopicResources(); track res.file; let i = $index) {
+          <div class="resource-card reveal" zyAnimateOnScroll [delay]="i * 80">
+            <div class="resource-thumbnail">
+              <div class="resource-thumbnail-placeholder" [style.background]="topic() === 'python' ? 'rgba(37,99,235,0.08)' : (topic() === 'abacus' ? 'rgba(16,185,129,0.08)' : 'rgba(239,68,68,0.08)')">
+                <span class="material-icons-outlined" [style.color]="topic() === 'python' ? 'var(--color-primary)' : (topic() === 'abacus' ? 'var(--color-success)' : 'var(--color-accent)')">picture_as_pdf</span>
+              </div>
+            </div>
+            <div class="resource-info">
+              <span class="badge">{{ res.size }}</span>
+              <h3 class="resource-title">{{ res.title }}</h3>
+              <p class="resource-description">File: {{ res.file }}</p>
+              <div class="resource-actions">
+                <a [href]="res.path" [download]="res.file" class="btn btn-outline btn-sm">
+                  <span class="material-icons-outlined">download</span>
+                  Download PDF
+                </a>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+}

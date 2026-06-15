@@ -1,0 +1,328 @@
+/* ============================================
+   COMPUTER UPGRADE — Premium Glassmorphic Styles
+   ============================================ */
+
+/* Container & Header Section */
+.pb-12 {
+  padding-bottom: var(--space-20);
+}
+
+.mb-12 {
+  margin-bottom: var(--space-16);
+}
+
+
+
+.font-bold {
+  font-weight: var(--weight-bold);
+}
+
+.font-semibold {
+  font-weight: var(--weight-semibold);
+}
+
+.text-xs {
+  font-size: var(--text-caption);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.tracking-wider {
+  letter-spacing: var(--tracking-widest);
+}
+
+/* Colors & Icons */
+.text-gray-800 {
+  color: var(--color-primary);
+}
+
+.text-gray-600 {
+  color: var(--color-text-muted);
+}
+
+.text-gray-700 {
+  color: var(--color-text);
+}
+
+.text-gray-50 {
+  color: var(--color-primary);
+}
+
+.text-primary-dark {
+  color: var(--color-accent-dark);
+}
+
+.text-tertiary-dark {
+  color: var(--color-accent);
+}
+
+.text-secondary-dark {
+  color: var(--color-secondary-dark);
+}
+
+.text-primary {
+  color: var(--color-accent);
+}
+
+/* Grid & Layout */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.space-y-8 > * + * {
+  margin-top: var(--space-8);
+}
+
+/* Vertical Timeline Indicator Line */
+.before\:absolute::before {
+  content: '';
+  position: absolute;
+}
+
+.before\:inset-0::before {
+  top: var(--space-6);
+  bottom: var(--space-6);
+}
+
+.before\:h-full::before {
+  height: 100%;
+}
+
+.before\:w-0\.5::before {
+  width: 3px;
+}
+
+.before\:opacity-50::before {
+  opacity: 0.8;
+}
+
+.before\:from-primary-light::before {
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-border) 0%,
+    var(--color-accent) 50%,
+    var(--color-border) 100%
+  );
+}
+
+.before\:ml-5::before {
+  left: 20px;
+}
+
+/* Timeline Badge (Grade Indicator) */
+.z-10 {
+  z-index: 10;
+}
+
+.bg-surface {
+  background-color: var(--color-surface);
+}
+
+.border-primary-light {
+  border-color: var(--color-accent);
+}
+
+.border {
+  border: 2px solid var(--color-border);
+}
+
+.px-4 {
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.py-2 {
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
+}
+
+.rounded-full {
+  border-radius: var(--radius-full);
+}
+
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+/* Timeline Content Card (Premium Glassmorphism) */
+.bg-white {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.rounded-2xl {
+  border-radius: var(--radius-xl);
+}
+
+/* Decorative Watermark Icon */
+.opacity-10 {
+  opacity: 0.03;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.text-9xl {
+  font-size: 10rem;
+  transition: transform var(--transition-slow);
+}
+
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+.gap-10 { gap: var(--space-10); }
+
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-6 { margin-bottom: var(--space-6); }
+
+/* Left Icon Highlight Box */
+.bg-primary-light\/30 {
+  background: var(--color-border-light);
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+.w-12 { width: 52px; }
+.h-12 { height: 52px; }
+.rounded-xl { border-radius: var(--radius-md); }
+
+.text-xl {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+}
+
+/* SMART Cards Grid & Individual Subcards */
+.bg-gray-50 {
+  background-color: var(--color-surface-elevated);
+  border: 1.5px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  transition: all var(--transition-base);
+}
+
+.border-gray-100 {
+  border-color: var(--color-border-light);
+}
+
+.leading-relaxed {
+  line-height: var(--leading-relaxed);
+}
+
+/* ── INTERACTIVE HOVER ACTIONS ── */
+
+/* Timeline Item hover lift */
+.hover\:shadow-lg {
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.hover\:shadow-lg:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--color-accent-light);
+}
+
+/* Rotate large background watermark on card hover */
+.group:hover .text-9xl {
+  transform: scale(1.1) rotate(6deg);
+}
+
+/* Active Badge highlights on hover */
+.group:hover .group-hover\:bg-primary {
+  background: var(--gradient-primary);
+  color: var(--color-text-inverse) !important;
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Icon box highlights */
+.group:hover .bg-primary-light\/30 {
+  background: var(--color-accent);
+  color: var(--color-text-inverse) !important;
+}
+
+/* Subcards interactive scale & highlight */
+.bg-gray-50:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-surface);
+  border-color: var(--color-accent-light);
+  box-shadow: var(--shadow-md);
+}
+
+/* Responsive configurations */
+@media (min-width: 768px) {
+  .md\:text-left {
+    text-align: left;
+  }
+  .md\:justify-start {
+    justify-content: flex-start;
+  }
+  .md\:before\:ml-\[8\.5rem\]::before {
+    left: 136px;
+  }
+  .md\:before\:translate-x-0::before {
+    transform: translateX(0);
+  }
+  .md\:flex-row {
+    flex-direction: row;
+  }
+  .md\:justify-end {
+    justify-content: flex-end;
+  }
+  .md\:w-32 {
+    width: 128px;
+  }
+  .md\:text-2xl {
+    font-size: var(--text-h2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

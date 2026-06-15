@@ -1,0 +1,161 @@
+@if (program(); as p) {
+  <!-- Hero -->
+  <section class="detail-hero" id="program-detail-hero">
+    <div class="detail-hero-bg"></div>
+    <div class="container detail-hero-content">
+      <a routerLink="/programs" class="back-link animate-fade-in-down">
+        <span class="material-icons-outlined">arrow_back</span>
+        All Programs
+      </a>
+      <span class="badge animate-fade-in-down" style="animation-delay: 100ms">{{ getCategoryLabel(p.category) }}</span>
+      <h1 class="heading-hero animate-fade-in-up" style="animation-delay: 200ms">{{ p.title }}</h1>
+      <p class="detail-hero-subtitle animate-fade-in-up" style="animation-delay: 300ms">{{ p.subtitle }}</p>
+      <div class="detail-hero-meta animate-fade-in-up" style="animation-delay: 400ms">
+        <span class="meta-item">
+          <span class="material-icons-outlined">schedule</span> {{ p.duration }}
+        </span>
+        <span class="meta-item">
+          <span class="material-icons-outlined">signal_cellular_alt</span> {{ p.level }}
+        </span>
+        @if (p.certification) {
+          <span class="meta-item">
+            <span class="material-icons-outlined">workspace_premium</span> {{ p.certification }}
+          </span>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="section" id="program-overview">
+    <div class="container detail-layout">
+      <div class="detail-main">
+        <div class="detail-block reveal" zyAnimateOnScroll>
+          <h2 class="heading-2">Overview</h2>
+          <div class="divider"></div>
+          <p class="detail-text">{{ p.description }}</p>
+        </div>
+
+        <!-- Modules -->
+        @if (p.modules.length > 0) {
+          <div class="detail-block reveal" zyAnimateOnScroll>
+            <h2 class="heading-2">Program Modules</h2>
+            <div class="divider"></div>
+            <div class="modules-list">
+              @for (mod of p.modules; track mod.title; let i = $index) {
+                <div class="module-card">
+                  <div class="module-number">{{ i + 1 }}</div>
+                  <div class="module-content">
+                    <h3 class="heading-4">{{ mod.title }}</h3>
+                    <p class="text-small text-muted">{{ mod.description }}</p>
+                    <div class="module-topics">
+                      @for (topic of mod.topics; track topic) {
+                        <span class="topic-tag">{{ topic }}</span>
+                      }
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        }
+
+        <!-- Learning Outcomes -->
+        <div class="detail-block reveal" zyAnimateOnScroll>
+          <h2 class="heading-2">Learning Outcomes</h2>
+          <div class="divider"></div>
+          <ul class="outcomes-list">
+            @for (outcome of p.outcomes; track outcome) {
+              <li class="outcome-item">
+                <span class="material-icons-outlined">check_circle</span>
+                {{ outcome }}
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- FAQ -->
+        @if (p.faq.length > 0) {
+          <div class="detail-block reveal" zyAnimateOnScroll>
+            <h2 class="heading-2">Frequently Asked Questions</h2>
+            <div class="divider"></div>
+            <div class="faq-list">
+              @for (item of p.faq; track item.question; let i = $index) {
+                <div class="faq-item" [class.open]="openFaq() === i">
+                  <button class="faq-question" (click)="toggleFaq(i)"
+                          [attr.aria-expanded]="openFaq() === i">
+                    {{ item.question }}
+                    <span class="material-icons-outlined">{{ openFaq() === i ? 'remove' : 'add' }}</span>
+                  </button>
+                  @if (openFaq() === i) {
+                    <div class="faq-answer">
+                      <p>{{ item.answer }}</p>
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="detail-sidebar">
+        <div class="sidebar-card reveal" zyAnimateOnScroll>
+          <div class="sidebar-icon">
+            <span class="material-icons-outlined">{{ p.icon }}</span>
+          </div>
+          <h3 class="heading-4">{{ p.title }}</h3>
+
+          <div class="sidebar-section">
+            <h4 class="sidebar-label">Learning Objectives</h4>
+            <ul class="sidebar-list">
+              @for (obj of p.objectives; track obj) {
+                <li>{{ obj }}</li>
+              }
+            </ul>
+          </div>
+
+          <div class="sidebar-section">
+            <h4 class="sidebar-label">Resources Included</h4>
+            <ul class="sidebar-list">
+              @for (res of p.resourcesIncluded; track res) {
+                <li>
+                  <span class="material-icons-outlined">description</span>
+                  {{ res }}
+                </li>
+              }
+            </ul>
+          </div>
+
+          @if (p.certification) {
+            <div class="sidebar-section">
+              <h4 class="sidebar-label">Certification</h4>
+              <p class="sidebar-cert">
+                <span class="material-icons-outlined">workspace_premium</span>
+                {{ p.certification }}
+              </p>
+            </div>
+          }
+
+          <a href="mailto:contact&#64;zyinnovators.com?subject=Inquiry: {{ p.title }}" class="btn btn-primary btn-lg w-full" id="program-enroll-cta">
+            <span class="material-icons-outlined">email</span>
+            Inquire Now
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+} @else {
+  <section class="section">
+    <div class="container text-center">
+      <span class="material-icons-outlined" style="font-size: 4rem; color: var(--color-text-light);">search_off</span>
+      <h2 class="heading-2 mt-4">Program Not Found</h2>
+      <p class="text-muted mt-2">The program you're looking for doesn't exist.</p>
+      <a routerLink="/programs" class="btn btn-outline btn-lg mt-6">
+        <span class="material-icons-outlined">arrow_back</span>
+        View All Programs
+      </a>
+    </div>
+  </section>
+}

@@ -1,0 +1,84 @@
+<section class="page-hero"><div class="page-hero-bg"></div><div class="container page-hero-content">
+  <span class="badge animate-fade-in-down">Reach Out</span>
+  <h1 class="heading-hero animate-fade-in-up">Get In <span class="text-gradient">Touch</span></h1>
+  <p class="page-hero-subtitle animate-fade-in-up" style="animation-delay:200ms">
+    We'd love to hear from you about programs, partnerships, or collaboration opportunities.
+  </p>
+</div></section>
+
+<section class="section"><div class="container">
+  <div class="contact-grid">
+    <!-- Contact Info -->
+    <div class="contact-info reveal" zyAnimateOnScroll>
+      <div class="info-card">
+        <div class="info-icon"><span class="material-icons-outlined">email</span></div>
+        <div>
+          <h3 class="heading-4">Email Us</h3>
+          <p class="text-muted">For general inquiries and program information</p>
+          <a href="mailto:zyinnovators&#64;gmail.com" class="info-link" id="contact-email">zyinnovators&#64;gmail.com</a>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon"><span class="material-icons-outlined">handshake</span></div>
+        <div>
+          <h3 class="heading-4">Partnerships</h3>
+          <p class="text-muted">For institutional partnerships and collaborations</p>
+          <a href="mailto:zyinnovators&#64;gmail.com" class="info-link" id="contact-partnerships">zyinnovators&#64;gmail.com</a>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon"><span class="material-icons-outlined">school</span></div>
+        <div>
+          <h3 class="heading-4">Training Inquiries</h3>
+          <p class="text-muted">For teacher training and workshop bookings</p>
+          <a href="mailto:zyinnovators&#64;gmail.com" class="info-link" id="contact-training">zyinnovators&#64;gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form (mailto) -->
+    <div class="contact-form-wrap reveal" zyAnimateOnScroll [delay]="200">
+      <h2 class="heading-2">Send Us a Message</h2>
+      <div class="divider"></div>
+      <p class="text-muted mb-6">Fill out the form and we'll get back to you within 24 hours.</p>
+
+      <form class="contact-form" id="contact-form">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" [ngModel]="name()" (ngModelChange)="name.set($event)" placeholder="Enter your full name" class="form-input">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" [ngModel]="email()" (ngModelChange)="email.set($event)" placeholder="Enter your email" class="form-input">
+        </div>
+        <div class="form-group">
+          <label for="institution">Institution / Organization</label>
+          <input type="text" id="institution" name="institution" [ngModel]="institution()" (ngModelChange)="institution.set($event)" placeholder="School, college, or organization" class="form-input">
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject" [ngModel]="subject()" (ngModelChange)="subject.set($event)" class="form-input">
+            <option value="">Select a topic</option>
+            <option value="Teacher Training">Teacher Training Programs</option>
+            <option value="Workshops">Workshop Booking</option>
+            <option value="Partnership">Partnership Inquiry</option>
+            <option value="Innovation Lab">Innovation Lab Setup</option>
+            <option value="Resources">Resource Inquiry</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group full-width">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" [ngModel]="message()" (ngModelChange)="message.set($event)" rows="5" placeholder="Tell us how we can help..." class="form-input"></textarea>
+        </div>
+        <a [href]="getMailtoLink()"
+           class="btn btn-primary btn-lg" id="contact-submit">
+          <span class="material-icons-outlined">send</span>
+          Send Message
+        </a>
+      </form>
+    </div>
+  </div>
+</div></section>

@@ -1,0 +1,111 @@
+<header class="navbar" [class.scrolled]="isScrolled()" id="main-navbar">
+  <div class="navbar-inner">
+    <!-- Logo -->
+    <a routerLink="/" class="logo" (click)="closeMobileMenu()" id="navbar-logo">
+      <span class="logo-icon">
+        <span class="material-icons-outlined">rocket_launch</span>
+      </span>
+      <span class="logo-text">
+        <span class="logo-name">Zy Innovators</span>
+        <span class="logo-tagline">Building Future Innovators</span>
+      </span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-desktop" aria-label="Main navigation" id="desktop-nav">
+      @for (item of navItems; track item.label) {
+        @if (item.children) {
+          <div class="nav-dropdown"
+               (mouseenter)="toggleDropdown(item.label)"
+               (mouseleave)="closeDropdown()">
+            <a [routerLink]="item.path"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{exact: item.path === '/'}"
+               class="nav-link has-dropdown"
+               [id]="'nav-' + item.label.toLowerCase()">
+              {{ item.label }}
+              <span class="material-icons-outlined dropdown-arrow">expand_more</span>
+            </a>
+            <div class="dropdown-menu" [class.open]="activeDropdown() === item.label">
+              @for (child of item.children; track child.label) {
+                <a [routerLink]="child.path.split('?')[0]"
+                   [queryParams]="child.path.includes('?') ? parseQuery(child.path) : null"
+                   class="dropdown-item"
+                   (click)="closeDropdown()"
+                   [id]="'nav-' + child.label.toLowerCase().replace(/ /g, '-')">
+                  {{ child.label }}
+                </a>
+              }
+            </div>
+          </div>
+        } @else {
+          <a [routerLink]="item.path"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: item.path === '/'}"
+             class="nav-link"
+             [id]="'nav-' + item.label.toLowerCase().replace(/ /g, '-')">
+            {{ item.label }}
+          </a>
+        }
+      }
+    </nav>
+
+    <!-- CTA Button (Desktop) -->
+    <a routerLink="/contact" class="nav-cta hide-mobile" id="navbar-cta">
+      Get Started
+    </a>
+
+    <!-- Mobile Menu Button -->
+    <button class="menu-toggle hide-desktop"
+            (click)="toggleMobileMenu()"
+            [attr.aria-expanded]="isMobileMenuOpen()"
+            aria-controls="mobile-nav"
+            aria-label="Toggle navigation menu"
+            id="mobile-menu-toggle">
+      <span class="menu-bar" [class.open]="isMobileMenuOpen()"></span>
+      <span class="menu-bar" [class.open]="isMobileMenuOpen()"></span>
+      <span class="menu-bar" [class.open]="isMobileMenuOpen()"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="nav-mobile" [class.open]="isMobileMenuOpen()" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <div class="nav-mobile-inner">
+      @for (item of navItems; track item.label) {
+        @if (item.children) {
+          <div class="mobile-dropdown">
+            <button class="mobile-nav-link"
+                    (click)="toggleDropdown(item.label)"
+                    [attr.aria-expanded]="activeDropdown() === item.label">
+              {{ item.label }}
+              <span class="material-icons-outlined" [class.rotated]="activeDropdown() === item.label">expand_more</span>
+            </button>
+            @if (activeDropdown() === item.label) {
+              <div class="mobile-dropdown-menu">
+                @for (child of item.children; track child.label) {
+                  <a [routerLink]="child.path.split('?')[0]"
+                     [queryParams]="child.path.includes('?') ? parseQuery(child.path) : null"
+                     class="mobile-dropdown-item"
+                     (click)="closeMobileMenu()">
+                    {{ child.label }}
+                  </a>
+                }
+              </div>
+            }
+          </div>
+        } @else {
+          <a [routerLink]="item.path"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: item.path === '/'}"
+             class="mobile-nav-link"
+             (click)="closeMobileMenu()">
+            {{ item.label }}
+          </a>
+        }
+      }
+      <a routerLink="/contact" class="btn btn-primary btn-lg mobile-cta" (click)="closeMobileMenu()">
+        Get Started
+      </a>
+    </div>
+  </div>
+</header>

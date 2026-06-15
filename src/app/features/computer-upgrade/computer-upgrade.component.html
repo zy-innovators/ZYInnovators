@@ -1,0 +1,66 @@
+<section class="section">
+  <div class="container pb-12">
+    <!-- Header -->
+    <header class="mb-12 text-center md:text-left reveal" zyAnimateOnScroll>
+      <h1 class="page-title">
+        <span class="material-icons-outlined text-4xl text-primary">computer</span>
+        Computer Upgrade Program
+      </h1>
+      <p class="page-subtitle">
+        A progressive digital curriculum designed to transition students from basic visual logic to advanced AI-assisted productivity.
+      </p>
+    </header>
+
+    <!-- Timeline/Roadmap Layout -->
+    <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 md:before:ml-[8.5rem] before:-translate-x-px md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-primary-light before:via-primary before:to-primary-light before:opacity-50">
+      
+      @for (program of dataService.computerPrograms(); track program.grade) {
+        <div class="relative flex flex-col md:flex-row gap-6 md:gap-10 items-start group">
+          
+          <!-- Badge (Grade Level) -->
+          <div class="flex items-center md:justify-end md:w-32 flex-shrink-0 z-10">
+            <div class="flex items-center gap-2 bg-surface border border-primary-light text-primary-dark font-bold px-4 py-2 rounded-full shadow-sm whitespace-nowrap group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+              <span class="text-sm">{{ program.grade }}</span>
+            </div>
+          </div>
+
+          <!-- Content Card -->
+          <div class="flex-1 w-full bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-lg transition-all duration-300 relative">
+            <!-- Decorative Icon Background -->
+            <div class="absolute top-4 right-4 text-gray-50 opacity-10 pointer-events-none">
+              <span class="material-icons-outlined text-9xl">{{ program.icon }}</span>
+            </div>
+
+            <div class="flex items-center gap-4 mb-6">
+               <div class="w-12 h-12 rounded-xl bg-primary-light/30 flex items-center justify-center text-primary-dark">
+                  <span class="material-icons-outlined text-2xl">{{ program.icon }}</span>
+               </div>
+               <h2 class="text-xl md:text-2xl font-bold text-gray-800">{{ program.title }}</h2>
+            </div>
+
+            <!-- SMART Goals Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 relative z-0">
+              
+              <!-- Specific -->
+              <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                <p class="text-gray-700 text-sm leading-relaxed">{{ program.smart.specific }}</p>
+              </div>
+
+              <!-- Achievable -->
+              <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                <p class="text-gray-700 text-sm leading-relaxed">{{ program.smart.achievable }}</p>
+              </div>
+
+              <!-- Relevant -->
+              <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                <p class="text-gray-700 text-sm leading-relaxed">{{ program.smart.relevant }}</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      }
+
+    </div>
+  </div>
+</section>

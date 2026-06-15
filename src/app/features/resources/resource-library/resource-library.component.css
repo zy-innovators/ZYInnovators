@@ -1,0 +1,217 @@
+/* ============================================
+   Resource Library — Rebranded Styles
+   ============================================ */
+
+.page-hero {
+  position: relative;
+  padding: calc(80px + var(--space-16)) 0 var(--space-16);
+  text-align: center;
+  color: var(--color-text);
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hero);
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero-subtitle {
+  font-size: var(--text-body-lg);
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin-inline: auto;
+  margin-top: var(--space-4);
+}
+
+.search-filter-bar {
+  margin-bottom: var(--space-10);
+}
+
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-6);
+  transition: border-color var(--transition-fast);
+}
+
+.search-input-wrap:focus-within {
+  border-color: var(--color-accent);
+}
+
+.search-input-wrap .material-icons-outlined {
+  color: var(--color-text-light);
+  font-size: 1.3rem;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: var(--text-body);
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.filter-chip {
+  padding: var(--space-2) var(--space-5);
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-chip:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-dark);
+}
+
+.filter-chip.active {
+  background: var(--color-accent);
+  color: white;
+  border-color: var(--color-accent);
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.resource-card {
+  display: flex;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.resource-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent);
+}
+
+.resource-thumbnail {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.resource-thumbnail-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(138, 106, 69, 0.04), rgba(90, 90, 90, 0.04));
+}
+
+.resource-thumbnail-placeholder .material-icons-outlined {
+  font-size: 3rem;
+  color: var(--color-text-light);
+}
+
+.resource-info {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.resource-info .badge {
+  margin-bottom: var(--space-2);
+  align-self: flex-start;
+}
+
+.resource-title {
+  font-family: var(--font-body);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-bold);
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+.resource-description {
+  font-size: var(--text-small);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+  flex: 1;
+  margin-bottom: var(--space-3);
+}
+
+.resource-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.tag {
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-caption);
+  background: rgba(138, 106, 69, 0.06);
+  color: var(--color-accent-dark);
+  border-radius: var(--radius-sm);
+}
+
+.resource-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-16) 0;
+  color: var(--color-text-muted);
+}
+
+.empty-state .material-icons-outlined {
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+  color: var(--color-text-light);
+}
+
+.empty-state h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .resource-card {
+    flex-direction: column;
+  }
+  
+  .resource-thumbnail {
+    width: 100%;
+    height: 180px;
+  }
+}

@@ -1,0 +1,93 @@
+/* ============================================
+   COMPETITIONS — Dashboard & Pathway Styles
+   ============================================ */
+
+.pb-12 {
+  padding-bottom: var(--space-20);
+}
+
+.mb-12 {
+  margin-bottom: var(--space-12);
+}
+
+
+/* Dashboard list */
+.competitions-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* New Competition Card */
+.competition-card-new {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.competition-card-new:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--color-accent-light);
+}
+
+.comp-card-top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.comp-icon-ring {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: var(--color-border-light);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: background var(--transition-base), color var(--transition-base), transform var(--transition-base);
+  flex-shrink: 0;
+}
+
+.comp-icon {
+  font-size: 1.85rem;
+}
+
+.competition-card-new:hover .comp-icon-ring {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  transform: scale(1.05);
+}
+
+.comp-title {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.comp-subtitle {
+  font-size: var(--text-caption);
+  color: var(--color-accent-light);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+.comp-description {
+  font-size: var(--text-body);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+  margin-bottom: 0;
+}
+
+

@@ -1,0 +1,182 @@
+<!-- ============================================
+     SECTION 1: HERO
+     ============================================ -->
+<section class="hero" id="hero-section">
+  <div class="hero-bg">
+    <div class="hero-gradient"></div>
+    <div class="hero-grid"></div>
+  </div>
+
+  <div class="hero-content container">
+    <div class="hero-badge animate-fade-in-down">
+      <span class="material-icons-outlined">auto_awesome</span>
+      Pioneering Education Through Innovation
+    </div>
+
+    <h1 class="hero-title animate-fade-in-up">
+      Building Future<br>
+      <span class="text-gradient">Innovators</span>
+    </h1>
+
+    <p class="hero-subtitle animate-fade-in-up" style="animation-delay: 200ms">
+      Through AI, Robotics, Programming, Mathematics and Research.
+    </p>
+
+    <div class="hero-actions animate-fade-in-up" style="animation-delay: 400ms">
+      <a routerLink="/computer-upgrade" class="btn btn-primary btn-lg" id="hero-cta-primary">
+        <span class="material-icons-outlined">computer</span>
+        Computer Upgrade
+      </a>
+      <a routerLink="/about/vision-mission" class="btn btn-secondary btn-lg" id="hero-cta-secondary">
+        <span class="material-icons-outlined">info</span>
+        Our Vision
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator animate-fade-in" style="animation-delay: 1000ms">
+    <span class="material-icons-outlined">expand_more</span>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 2: LEADERSHIP (Moved Up)
+     ============================================ -->
+<section class="section leadership-section" id="leadership-section">
+  <div class="container">
+    <div class="section-header reveal" zyAnimateOnScroll>
+      <span class="badge">Our Leadership</span>
+      <h2 class="heading-1">Visionary <span class="text-gradient">Leadership</span></h2>
+      <p class="section-subtitle">
+        Meet the team driving educational innovation and transforming learning experiences.
+      </p>
+    </div>
+
+    <div class="leaders-grid">
+      @for (leader of leaders; track leader.id; let i = $index) {
+        <div class="leader-card reveal"
+             zyAnimateOnScroll
+             [delay]="i * 150"
+             [id]="'leader-' + leader.id">
+          <div class="leader-portrait">
+            @if (leader.image) {
+              <img [src]="leader.image" [alt]="leader.name" class="leader-img">
+            } @else {
+              <div class="leader-portrait-placeholder">
+                <span class="material-icons-outlined">person</span>
+              </div>
+            }
+          </div>
+          <div class="leader-info">
+            <h3 class="leader-name">{{ leader.name }}</h3>
+            <p class="leader-designation">{{ leader.designation }}</p>
+            <p class="leader-intro">{{ leader.shortIntro }}</p>
+            <a routerLink="/about/leadership" class="leader-link">
+              View Profile <span class="material-icons-outlined">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 3: WHO WE ARE & IMPACT METRICS
+     ============================================ -->
+<section class="section whoweare-section" id="who-we-are">
+  <div class="container">
+    <div class="whoweare-carousel-wrap reveal" zyAnimateOnScroll>
+      <div class="photo-carousel-modern">
+        <div class="carousel-track" [style.transform]="'translateX(-' + (activePhotoIndex() * (100 / visibleCount())) + '%)'">
+          @for (photo of photos; track photo; let pi = $index) {
+            <div class="carousel-slide-modern">
+              <img [src]="photo" alt="Zy Innovators Activity" class="carousel-image-modern">
+            </div>
+          }
+        </div>
+        <!-- Carousel Navigation Dots -->
+        <div class="carousel-dots-modern">
+          @for (dot of getDots(); track dot) {
+            <button class="dot-btn-modern" [class.active]="activePhotoIndex() === dot" (click)="setPhotoIndex(dot)"></button>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 4: DOMAINS OF EXCELLENCE
+     ============================================ -->
+<section class="section domains-section" id="domains-section">
+  <div class="container">
+    <div class="section-header reveal" zyAnimateOnScroll>
+      <span class="badge">Our Expertise</span>
+      <h2 class="heading-1">Domains of <span class="text-gradient">Excellence</span></h2>
+      <p class="section-subtitle">
+        We specialize in key domains that define the future of education and research.
+      </p>
+    </div>
+
+    <div class="domains-grid">
+      @for (domain of domains; track domain.id; let i = $index) {
+        <div class="domain-card reveal"
+             zyAnimateOnScroll
+             [delay]="i * 100"
+             [id]="'domain-' + domain.id"
+             [style.--domain-color]="domain.color">
+          <div class="domain-icon">
+            <span class="material-icons-outlined">{{ domain.icon }}</span>
+          </div>
+          <h3 class="domain-title">{{ domain.title }}</h3>
+          <p class="domain-description">{{ domain.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 5: COMPUTER UPGRADE PATHWAY
+     ============================================ -->
+<section class="section programs-section" id="curriculum-roadmap">
+  <div class="container text-center">
+    <div class="section-header reveal" zyAnimateOnScroll>
+      <span class="badge">Curriculum Roadmap</span>
+      <h2 class="heading-1">School Syllabus <span class="text-gradient">Upgrade</span></h2>
+      <p class="section-subtitle" style="max-width: 800px; margin-inline: auto;">
+        Traditional curricula are no longer enough to prepare students for a rapidly changing world. That is why we have engineered a high-value, forward-thinking syllabus that bridges the gap between classroom education and the practical demands of modern industries.
+      </p>
+    </div>
+
+    <div class="section-cta reveal" zyAnimateOnScroll style="margin-top: var(--space-8);">
+      <a routerLink="/computer-upgrade" class="btn btn-outline btn-lg" id="view-full-curriculum">
+        Explore Full Syllabus Timeline
+        <span class="material-icons-outlined">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 8: CONTACT CTA
+     ============================================ -->
+<section class="cta-section" id="contact-cta">
+  <div class="cta-bg">
+    <div class="cta-gradient"></div>
+    <div class="cta-grid"></div>
+  </div>
+  <div class="container cta-content reveal" zyAnimateOnScroll>
+    <h2 class="heading-1 text-inverse">Ready to <span class="text-gradient">Innovate</span>?</h2>
+    <p class="cta-subtitle">
+      Partner with Zy Innovators to bring world-class educational programs, workbooks, and training to your institution.
+    </p>
+    <div class="cta-actions">
+      <a href="mailto:zyinnovators&#64;gmail.com" class="btn btn-primary btn-lg" id="cta-contact">
+        <span class="material-icons-outlined">email</span>
+        Get In Touch
+      </a>
+    </div>
+  </div>
+</section>

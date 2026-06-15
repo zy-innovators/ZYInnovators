@@ -1,0 +1,83 @@
+<section class="section">
+  <div class="container pb-12">
+    <!-- Header -->
+    <header class="mb-12 text-center md:text-left reveal" zyAnimateOnScroll>
+      <h1 class="page-title">
+        <span class="material-icons-outlined text-4xl text-primary">school</span>
+        Training & Workshops
+      </h1>
+      <p class="page-subtitle">
+        Empowering educators with innovative teaching tools and equipping students with foundational logic, mathematics, and economics concepts.
+      </p>
+    </header>
+
+    <!-- Tab Switcher -->
+    <div class="tabs-container mb-12 reveal" zyAnimateOnScroll [delay]="100">
+      <div class="tabs-list">
+        <button 
+          (click)="setTab('all')" 
+          [class.active]="activeTab() === 'all'" 
+          class="tab-btn">
+          All Sessions
+        </button>
+        <button 
+          (click)="setTab('teachers')" 
+          [class.active]="activeTab() === 'teachers'" 
+          class="tab-btn">
+          For Teachers
+        </button>
+        <button 
+          (click)="setTab('students')" 
+          [class.active]="activeTab() === 'students'" 
+          class="tab-btn">
+          For Students
+        </button>
+      </div>
+    </div>
+
+    <!-- Sessions Grid -->
+    <div class="sessions-grid">
+      @for (item of filteredItems(); track item.title; let i = $index) {
+        <div class="session-card reveal group" zyAnimateOnScroll [delay]="i * 100">
+          <div class="session-card-inner">
+            <!-- Left Info Panel -->
+            <div class="session-info-panel">
+              <div class="session-meta">
+                <span class="category-tag" [class.tag-teachers]="item.category === 'teachers'">
+                  {{ item.category === 'teachers' ? 'Teacher Training' : 'Student Workshop' }}
+                </span>
+                <span class="material-icons-outlined session-icon">{{ item.icon }}</span>
+              </div>
+              
+              <h2 class="session-title">{{ item.title }}</h2>
+              <p class="session-subtitle">{{ item.subtitle }}</p>
+              <p class="session-description">{{ item.description }}</p>
+              
+              @if (item.downloadUrl) {
+                <div class="session-actions">
+                  <a class="btn btn-primary" [routerLink]="['/resources']" [queryParams]="{ topic: item.title.toLowerCase().includes('python') ? 'python' : 'abacus' }">
+                    <span class="material-icons-outlined">download_for_offline</span>
+                    Download Resources
+                  </a>
+                </div>
+              }
+            </div>
+
+            <!-- Right Objectives Panel -->
+            <div class="session-objectives-panel">
+              <h4 class="objectives-heading">Key Objectives</h4>
+              <ul class="objectives-list">
+                @for (obj of item.objectives; track obj) {
+                  <li>
+                    <span class="material-icons-outlined bullet-icon">check_circle</span>
+                    <span>{{ obj }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

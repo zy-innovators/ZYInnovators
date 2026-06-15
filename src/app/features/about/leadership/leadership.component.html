@@ -1,0 +1,52 @@
+<section class="page-hero"><div class="page-hero-bg"></div><div class="container page-hero-content">
+  <span class="badge animate-fade-in-down">Our Team</span>
+  <h1 class="heading-hero animate-fade-in-up">Visionary <span class="text-gradient">Leadership</span></h1>
+  <p class="page-hero-subtitle animate-fade-in-up" style="animation-delay:200ms">
+    Meet the team driving educational innovation and transforming learning experiences across institutions.
+  </p>
+</div></section>
+
+<section class="section"><div class="container">
+  @for (leader of leaders; track leader.id; let i = $index) {
+    <div class="leader-profile reveal" zyAnimateOnScroll [delay]="i * 150" [id]="'leader-profile-' + leader.id"
+         [class.reverse]="i % 2 !== 0">
+      <div class="leader-portrait-large">
+        @if (leader.image) {
+          <img [src]="leader.image" [alt]="leader.name" class="portrait-img">
+        } @else {
+          <div class="portrait-placeholder">
+            <span class="material-icons-outlined">person</span>
+          </div>
+        }
+      </div>
+      <div class="leader-details">
+        <span class="badge">{{ leader.designation }}</span>
+        <h2 class="heading-1">{{ leader.name }}</h2>
+        <p class="leader-bio">{{ leader.biography }}</p>
+
+        <div class="leader-section">
+          <h3 class="heading-4">Vision</h3>
+          <p class="text-muted">{{ leader.vision }}</p>
+        </div>
+
+        <div class="leader-section">
+          <h3 class="heading-4">Areas of Expertise</h3>
+          <div class="expertise-tags">
+            @for (exp of leader.expertise; track exp) {
+              <span class="expertise-tag">{{ exp }}</span>
+            }
+          </div>
+        </div>
+
+        <div class="leader-section">
+          <h3 class="heading-4">Key Contributions</h3>
+          <ul class="contributions-list">
+            @for (contrib of leader.contributions; track contrib) {
+              <li><span class="material-icons-outlined">check_circle</span> {{ contrib }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  }
+</div></section>

@@ -1,0 +1,211 @@
+/* ============================================
+   TRAINING & WORKSHOPS — Asymmetric Card Styles
+   ============================================ */
+
+.pb-12 {
+  padding-bottom: var(--space-20);
+}
+
+.mb-12 {
+  margin-bottom: var(--space-12);
+}
+
+
+
+/* Tab Switcher */
+.tabs-container {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .tabs-container {
+    justify-content: flex-start;
+  }
+}
+
+.tabs-list {
+  display: inline-flex;
+  background: var(--color-border-light);
+  padding: 4px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-muted);
+  padding: var(--space-2) var(--space-6);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.tab-btn:hover {
+  color: var(--color-primary);
+}
+
+.tab-btn.active {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+}
+
+/* Sessions Grid & Cards */
+.sessions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+.session-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.session-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--color-accent-light);
+}
+
+.session-card-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 992px) {
+  .session-card-inner {
+    grid-template-columns: 2fr 1.1fr;
+  }
+}
+
+/* Left Info Panel */
+.session-info-panel {
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+}
+
+.session-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.category-tag {
+  display: inline-block;
+  font-size: var(--text-caption);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  background: rgba(138, 106, 69, 0.08);
+  color: var(--color-accent-dark);
+  padding: 4px var(--space-3);
+  border-radius: var(--radius-full);
+}
+
+.category-tag.tag-teachers {
+  background: rgba(90, 90, 90, 0.08);
+  color: var(--color-secondary-dark);
+}
+
+.session-icon {
+  font-size: 2rem;
+  color: var(--color-accent);
+  transition: transform var(--transition-base);
+}
+
+.session-card:hover .session-icon {
+  transform: scale(1.1) rotate(6deg);
+}
+
+.session-title {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  color: var(--color-primary);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.session-subtitle {
+  font-size: var(--text-small);
+  color: var(--color-accent-light);
+  font-weight: var(--weight-semibold);
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+}
+
+.session-description {
+  font-size: var(--text-body);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-6);
+  flex-grow: 1;
+}
+
+.session-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Right Objectives Panel */
+.session-objectives-panel {
+  background: var(--color-surface-elevated);
+  border-top: 1px solid var(--color-border-light);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 992px) {
+  .session-objectives-panel {
+    border-top: none;
+    border-left: 1px solid var(--color-border-light);
+  }
+}
+
+.objectives-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  color: var(--color-primary);
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+}
+
+.objectives-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.objectives-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-small);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+.bullet-icon {
+  color: var(--color-success);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
