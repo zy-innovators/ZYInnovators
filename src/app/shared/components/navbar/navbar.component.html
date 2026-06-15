@@ -68,6 +68,9 @@
     </button>
   </div>
 
+  <!-- Mobile Backdrop Overlay -->
+  <div class="nav-backdrop" [class.open]="isMobileMenuOpen()" (click)="closeMobileMenu()"></div>
+
   <!-- Mobile Navigation -->
   <div class="nav-mobile" [class.open]="isMobileMenuOpen()" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
     <div class="nav-mobile-inner">
