@@ -4,6 +4,8 @@
 
 :host {
   display: block;
+  position: relative;
+  z-index: var(--z-navbar);
 }
 
 .navbar {
