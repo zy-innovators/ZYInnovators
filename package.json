@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "deploy": "ng build --configuration production --base-href /ZYInnovators/ && rm -rf docs && cp -r dist/zy-innovators/browser docs && cp docs/index.html docs/404.html && rm -rf dist",
+    "start": "node scripts/generate-resources.js && ng serve",
+    "build": "node scripts/generate-resources.js && ng build",
+    "deploy": "node scripts/generate-resources.js && ng build --configuration production --base-href /ZYInnovators/ && rm -rf docs && cp -r dist/zy-innovators/browser docs && cp docs/index.html docs/404.html && rm -rf dist",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

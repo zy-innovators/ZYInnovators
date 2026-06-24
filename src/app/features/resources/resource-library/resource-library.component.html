@@ -88,11 +88,11 @@
 
       <header class="mb-12 text-center md:text-left reveal" zyAnimateOnScroll>
         <h1 class="page-title">
-          <span class="material-icons-outlined text-4xl text-primary">{{ topic() === 'python' ? 'code' : (topic() === 'abacus' ? 'calculate' : 'science') }}</span>
-          {{ topic() === 'python' ? 'Python Programming' : (topic() === 'abacus' ? 'Abacus & Tangram' : 'Science') }} Resources
+          <span class="material-icons-outlined text-4xl text-primary">{{ getTopicIcon() }}</span>
+          {{ getTopicTitle() }} Resources
         </h1>
         <p class="page-subtitle">
-          Select and download individual study books, manuals, and student workbooks for {{ topic() === 'python' ? 'Python' : (topic() === 'abacus' ? 'Abacus' : 'Science') }} training.
+          Select and download individual study books, manuals, and student workbooks, or access interactive tools for {{ getTopicTitle() }} training.
         </p>
       </header>
 
@@ -101,19 +101,32 @@
         @for (res of getTopicResources(); track res.file; let i = $index) {
           <div class="resource-card reveal" zyAnimateOnScroll [delay]="i * 80">
             <div class="resource-thumbnail">
-              <div class="resource-thumbnail-placeholder" [style.background]="topic() === 'python' ? 'rgba(37,99,235,0.08)' : (topic() === 'abacus' ? 'rgba(16,185,129,0.08)' : 'rgba(239,68,68,0.08)')">
-                <span class="material-icons-outlined" [style.color]="topic() === 'python' ? 'var(--color-primary)' : (topic() === 'abacus' ? 'var(--color-success)' : 'var(--color-accent)')">picture_as_pdf</span>
+              <div class="resource-thumbnail-placeholder" [style.background]="getTopicColor()">
+                <span class="material-icons-outlined" [style.color]="getTopicIconColor()">{{ isExternalUrl(res.path) ? 'open_in_new' : 'picture_as_pdf' }}</span>
               </div>
             </div>
             <div class="resource-info">
               <span class="badge">{{ res.size }}</span>
               <h3 class="resource-title">{{ res.title }}</h3>
-              <p class="resource-description">File: {{ res.file }}</p>
+              <p class="resource-description">
+                @if (isExternalUrl(res.path)) {
+                  Type: Web Application
+                } @else {
+                  File: {{ res.file }}
+                }
+              </p>
               <div class="resource-actions">
-                <a [href]="res.path" [download]="res.file" class="btn btn-outline btn-sm">
-                  <span class="material-icons-outlined">download</span>
-                  Download PDF
-                </a>
+                @if (isExternalUrl(res.path)) {
+                  <a [href]="res.path" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                    <span class="material-icons-outlined">launch</span>
+                    Open Web App
+                  </a>
+                } @else {
+                  <a [href]="res.path" [download]="res.file" class="btn btn-outline btn-sm">
+                    <span class="material-icons-outlined">download</span>
+                    Download PDF
+                  </a>
+                }
               </div>
             </div>
           </div>

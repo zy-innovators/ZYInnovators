@@ -21,4 +21,10 @@ export class CompetitionsComponent implements OnInit {
       'Participate in Zy Innovators quiz and academic challenges, including General Knowledge (GK), Mathematics, Science Quiz, and IT & Coding Quiz.'
     );
   }
+
+  getTopicFromUrl(url: string | undefined): string {
+    if (!url) return '';
+    const match = url.match(/[?&]topic=([^&]+)/);
+    return match ? match[1] : '';
+  }
 }

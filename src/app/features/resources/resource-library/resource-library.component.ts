@@ -4,13 +4,7 @@ import { AnimateOnScrollDirective } from '../../../shared/directives/animate-on-
 import { SeoService } from '../../../core/services/seo.service';
 import { RESOURCES } from '../../../core/data/site.data';
 import { Resource } from '../../../shared/models';
-
-interface LocalTopicResource {
-  title: string;
-  file: string;
-  size: string;
-  path: string;
-}
+import { TOPIC_RESOURCES, GeneratedTopicResource } from '../../../core/data/generated-resources';
 
 @Component({
   selector: 'zy-resource-library',
@@ -25,27 +19,7 @@ export class ResourceLibraryComponent implements OnInit {
   searchQuery = signal<string>('');
   topic = signal<string | null>(null);
 
-  topicResources: Record<string, LocalTopicResource[]> = {
-    python: [
-      { title: 'Python Book', file: 'Python Book.pdf', size: '711 KB', path: 'assets/Resources/Python/Python Book.pdf' },
-      { title: 'Python Workbook for Students', file: 'Python Workbook for Students.pdf', size: '291 KB', path: 'assets/Resources/Python/Python Workbook for Students.pdf' },
-      { title: 'Python Workbook for Teachers', file: 'Python Workbook for Teachers.pdf', size: '905 KB', path: 'assets/Resources/Python/Python Workbook for Teachers.pdf' },
-      { title: 'Python Workbook Answer Key (For Students)', file: 'Python Workbook Answer Key (For Students).pdf', size: '649 KB', path: 'assets/Resources/Python/Python Workbook Answer Key (For Students).pdf' }
-    ],
-    abacus: [
-      { title: 'Abacus Level 1 Workbook', file: 'Level1.pdf', size: '5.4 MB', path: 'assets/Resources/Abacus/Level1.pdf' },
-      { title: 'Abacus Level 2 Workbook', file: 'Level2.pdf', size: '2.0 MB', path: 'assets/Resources/Abacus/Level2.pdf' },
-      { title: 'Abacus Level 3 Workbook', file: 'Level3.pdf', size: '2.7 MB', path: 'assets/Resources/Abacus/Level3.pdf' },
-      { title: 'Abacus Level 5 Workbook', file: 'Level5.pdf', size: '1.8 MB', path: 'assets/Resources/Abacus/Level5.pdf' },
-      { title: 'Abacus Level 6 Workbook', file: 'Level6.pdf', size: '2.4 MB', path: 'assets/Resources/Abacus/Level6.pdf' },
-      { title: 'Abacus Level 7 Workbook', file: 'Level7.pdf', size: '2.3 MB', path: 'assets/Resources/Abacus/Level7.pdf' },
-      { title: 'Abacus Level 8 Workbook', file: 'Level8.pdf', size: '2.6 MB', path: 'assets/Resources/Abacus/Level8.pdf' }
-    ],
-    science: [
-      { title: 'My Beautiful Body - Gift of God', file: 'My Beautiful Body - Gift of God.pdf', size: '301 KB', path: 'assets/Resources/science/My Beautiful Body - Gift of God.pdf' },
-      { title: 'میرا خوبصورت جسم - خدا کا تحفہ (Urdu)', file: 'میرا خوبصورت جسم - خدا کا تحفہ.pdf', size: '725 KB', path: 'assets/Resources/science/میرا خوبصورت جسم - خدا کا تحفہ.pdf' }
-    ]
-  };
+  topicResources = TOPIC_RESOURCES;
 
   categories = [
     { key: 'all', label: 'All Resources' },
@@ -97,7 +71,7 @@ export class ResourceLibraryComponent implements OnInit {
     });
   }
 
-  getTopicResources(): LocalTopicResource[] {
+  getTopicResources(): GeneratedTopicResource[] {
     const t = this.topic();
     return t ? (this.topicResources[t] || []) : [];
   }
@@ -117,5 +91,73 @@ export class ResourceLibraryComponent implements OnInit {
       'external-resources': 'External', 'downloads': 'Download'
     };
     return labels[category] || category;
+  }
+
+  getTopicIcon(): string {
+    const t = this.topic();
+    const icons: Record<string, string> = {
+      'python': 'code',
+      'abacus': 'calculate',
+      'maths': 'bolt',
+      'science': 'science',
+      'probsolv': 'psychology',
+      'gofer': 'functions',
+      'fp-pyjs': 'code',
+      'economics': 'trending_up',
+      'proj-mgmt': 'assignment'
+    };
+    return t ? (icons[t] || 'menu_book') : 'menu_book';
+  }
+
+  getTopicTitle(): string {
+    const t = this.topic();
+    const titles: Record<string, string> = {
+      'python': 'Python Programming',
+      'abacus': 'Abacus & Tangram',
+      'maths': 'Speed Mathematics',
+      'science': 'Science',
+      'probsolv': 'Problem Solving Guide',
+      'gofer': 'Gofer Functional Programming',
+      'fp-pyjs': 'Functional Programming (Python/JS)',
+      'economics': 'Economics',
+      'proj-mgmt': 'Project Management'
+    };
+    return t ? (titles[t] || t) : '';
+  }
+
+  getTopicColor(): string {
+    const t = this.topic();
+    const colors: Record<string, string> = {
+      'python': 'rgba(37,99,235,0.08)',
+      'abacus': 'rgba(16,185,129,0.08)',
+      'maths': 'rgba(245,158,11,0.08)',
+      'science': 'rgba(239,68,68,0.08)',
+      'probsolv': 'rgba(139,92,246,0.08)',
+      'gofer': 'rgba(20,184,166,0.08)',
+      'fp-pyjs': 'rgba(236,72,153,0.08)',
+      'economics': 'rgba(16,185,129,0.08)',
+      'proj-mgmt': 'rgba(107,114,128,0.08)'
+    };
+    return t ? (colors[t] || 'rgba(0,0,0,0.08)') : 'rgba(0,0,0,0.08)';
+  }
+
+  getTopicIconColor(): string {
+    const t = this.topic();
+    const colors: Record<string, string> = {
+      'python': 'var(--color-primary)',
+      'abacus': 'var(--color-success)',
+      'maths': 'var(--color-warning)',
+      'science': 'var(--color-accent)',
+      'probsolv': '#8B5CF6',
+      'gofer': '#14B8A6',
+      'fp-pyjs': '#EC4899',
+      'economics': 'var(--color-success)',
+      'proj-mgmt': '#6B7280'
+    };
+    return t ? (colors[t] || 'var(--color-primary)') : 'var(--color-primary)';
+  }
+
+  isExternalUrl(url: string): boolean {
+    return url.startsWith('http://') || url.startsWith('https://');
   }
 }

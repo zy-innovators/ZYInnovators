@@ -109,7 +109,8 @@ export class DataService {
       resources: [
         { label: 'Python Teacher Edition Workbook' },
         { label: 'Syllabus Coding Solutions Booklet' },
-        { label: 'Classroom Debugging Quick-Guide' }
+        { label: 'Classroom Debugging Quick-Guide' },
+        { label: 'Learning Python (Interactive Portal)' }
       ],
       downloadUrl: '/resources?topic=python'
     },
@@ -145,8 +146,9 @@ export class DataService {
       resources: [
         { label: 'Speed Maths Magic Tricks Booklet' },
         { label: 'Group Arithmetic Competition Cards' },
-        { label: 'Interactive Speed Maths Web App', url: 'https://zyarr-innovation.github.io/maths-app2/' }
-      ]
+        { label: 'Interactive Speed Maths Web App' }
+      ],
+      downloadUrl: '/resources?topic=maths'
     },
     {
       title: 'Entrepreneurship Workshop',
@@ -177,8 +179,74 @@ export class DataService {
       ],
       resources: [
         { label: 'Market Simulation Role Cards' },
-        { label: 'Introductory Economics Quick-Read' }
-      ]
+        { label: 'Introductory Economics Quick-Read' },
+        { label: 'Economics Registration Portal' }
+      ],
+      downloadUrl: '/resources?topic=economics'
+    },
+    {
+      title: 'Problem Solving Guide',
+      category: 'students',
+      icon: 'psychology',
+      subtitle: 'Algorithmic Problem Solving',
+      description: 'A guided program for students to master algorithmic thinking, puzzle solving, and systematic debugging methods to approach complex logic challenges.',
+      objectives: [
+        'Learn strategies to break down complex problems into manageable parts',
+        'Develop structured approaches to algorithmic design and testing',
+        'Build problem-solving confidence using hands-on logic puzzles'
+      ],
+      resources: [
+        { label: 'Problem Solving Guide (Interactive Portal)' }
+      ],
+      downloadUrl: '/resources?topic=probsolv'
+    },
+    {
+      title: 'Gofer Functional Programming',
+      category: 'students',
+      icon: 'functions',
+      subtitle: 'Functional Programming with Gofer',
+      description: 'Explore functional programming paradigms, pure functions, list comprehensions, and recursion using the Gofer programming language environment.',
+      objectives: [
+        'Understand pure functions, immutability, and declarative programming',
+        'Master recursion and higher-order functions in Gofer',
+        'Apply functional concepts to solve mathematical and logical tasks'
+      ],
+      resources: [
+        { label: 'Gofer Functional Programming Portal' }
+      ],
+      downloadUrl: '/resources?topic=gofer'
+    },
+    {
+      title: 'Functional Programming (Python/JS)',
+      category: 'students',
+      icon: 'code',
+      subtitle: 'Functional Thinking in Python & JavaScript',
+      description: 'Learn functional programming patterns such as map, filter, reduce, lambda expressions, and closures in modern Python and JavaScript.',
+      objectives: [
+        'Apply map, filter, and reduce operations on collections',
+        'Write clean, modular code with closures and lambda functions',
+        'Bridge the gap between object-oriented and functional styles'
+      ],
+      resources: [
+        { label: 'Functional Programming Portal' }
+      ],
+      downloadUrl: '/resources?topic=fp-pyjs'
+    },
+    {
+      title: 'Project Management',
+      category: 'students',
+      icon: 'assignment',
+      subtitle: 'Introduction to Agile & Project Execution',
+      description: 'Learn key project management practices, task prioritization, Agile boards, sprint planning, and team collaboration frameworks for student projects.',
+      objectives: [
+        'Understand project lifecycle, requirements gathering, and scoping',
+        'Learn task prioritization and board management using Agile principles',
+        'Develop collaboration and leadership skills within student teams'
+      ],
+      resources: [
+        { label: 'Project Management Portal' }
+      ],
+      downloadUrl: '/resources?topic=proj-mgmt'
     }
   ]);
 

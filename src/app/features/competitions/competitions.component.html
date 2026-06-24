@@ -31,7 +31,7 @@
 
           @if (comp.downloadUrl) {
             <div class="session-actions" style="margin-top: var(--space-4);">
-              <a class="btn btn-primary" [routerLink]="['/resources']" [queryParams]="{ topic: 'science' }">
+              <a class="btn btn-primary" [routerLink]="['/resources']" [queryParams]="{ topic: getTopicFromUrl(comp.downloadUrl) }">
                 <span class="material-icons-outlined">download_for_offline</span>
                 Download Resources
               </a>

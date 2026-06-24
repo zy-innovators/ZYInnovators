@@ -76,7 +76,7 @@
               
               @if (item.downloadUrl) {
                 <div class="session-actions">
-                  <a class="btn btn-primary" [routerLink]="['/resources']" [queryParams]="{ topic: item.title.toLowerCase().includes('python') ? 'python' : 'abacus' }">
+                  <a class="btn btn-primary" [routerLink]="['/resources']" [queryParams]="{ topic: getTopicFromUrl(item.downloadUrl) }">
                     <span class="material-icons-outlined">download_for_offline</span>
                     Download Resources
                   </a>

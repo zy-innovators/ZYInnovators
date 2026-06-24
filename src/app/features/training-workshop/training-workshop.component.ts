@@ -38,4 +38,10 @@ export class TrainingWorkshopComponent implements OnInit {
   hasLinkResources(item: TrainingWorkshop): boolean {
     return !!item.resources?.some(res => !!res.url);
   }
+
+  getTopicFromUrl(url: string | undefined): string {
+    if (!url) return '';
+    const match = url.match(/[?&]topic=([^&]+)/);
+    return match ? match[1] : '';
+  }
 }
